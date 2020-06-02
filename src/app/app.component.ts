@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, range } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   observable = new Observable(() => {
     console.log(Math.ceil(Math.random() * 50));
   });
+  range = range(1, 10);
   subject = new Subject<number>();
   ngOnInit(): void {
     this.observable.subscribe((observer) => observer);
@@ -19,5 +20,6 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.subject.next(657);
     }, 5000);
+    this.range.subscribe((result) => console.log(result));
   }
 }
