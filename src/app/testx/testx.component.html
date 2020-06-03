@@ -1,0 +1,8 @@
+<input type="button" value="Ativar/Desativar" (click)="isActive = !isActive" />
+<ng-container *ngIf="isActive; else elseTemplate">
+  <h2>ativado</h2>
+  <app-componentxy></app-componentxy>
+</ng-container>
+<ng-template #elseTemplate>
+  <h2>desativado</h2>
+</ng-template>
